@@ -7,7 +7,7 @@ function convertStrNums(strNums) {
   for (let i in strNums) {
       n = Number(strNums[i])
       if (isNaN(n)) {
-        throw BadRequestError()
+        throw new BadRequestError()
       }
       strNums[i] = n;
   }
