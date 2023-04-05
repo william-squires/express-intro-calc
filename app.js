@@ -17,7 +17,9 @@ app.get("/mean/:nums", function (req, res) {
   let nums = req.params.nums;
   nums = nums.split(",");
   nums = convertStrNums(nums);
+
   const mean = findMean(nums);
+
   return res.json({ response: { operation: "mean", value: mean } });
 
 });
@@ -28,7 +30,9 @@ app.get("/median/:nums", function (req, res) {
   let nums = req.params.nums;
   nums = nums.split(",");
   nums = convertStrNums(nums);
+
   const median = findMedian(nums);
+
   return res.json({ response: { operation: "median", value: median } });
 
 });
@@ -39,7 +43,9 @@ app.get("/mode/:nums", function (req, res) {
   let nums = req.params.nums;
   nums = nums.split(",");
   nums = convertStrNums(nums);
+
   const mode = findMode(nums);
+  
   return res.json({ response: { operation: "mode", value: mode } });
 
 });
