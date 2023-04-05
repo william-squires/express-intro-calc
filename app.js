@@ -12,9 +12,8 @@ const MISSING = "Expected key `nums` with comma-separated list of numbers.";
 
 
 /** Finds mean of nums in qs: returns {operation: "mean", result } */
-
-app.get("/mean/:nums", function (req, res) {
-  let nums = req.params.nums;
+app.get("/mean/", function (req, res) {
+  let nums = req.query.nums;
   nums = nums.split(",");
   nums = convertStrNums(nums);
 
@@ -26,8 +25,8 @@ app.get("/mean/:nums", function (req, res) {
 
 /** Finds median of nums in qs: returns {operation: "median", result } */
 
-app.get("/median/:nums", function (req, res) {
-  let nums = req.params.nums;
+app.get("/median/", function (req, res) {
+  let nums = req.query.nums;
   nums = nums.split(",");
   nums = convertStrNums(nums);
 
@@ -39,13 +38,13 @@ app.get("/median/:nums", function (req, res) {
 
 /** Finds mode of nums in qs: returns {operation: "mode", result } */
 
-app.get("/mode/:nums", function (req, res) {
-  let nums = req.params.nums;
+app.get("/mode/", function (req, res) {
+  let nums = req.query.nums;
   nums = nums.split(",");
   nums = convertStrNums(nums);
 
   const mode = findMode(nums);
-  
+
   return res.json({ response: { operation: "mode", value: mode } });
 
 });
