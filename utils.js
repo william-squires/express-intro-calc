@@ -4,16 +4,16 @@ const { BadRequestError } = require("./expressError");
 /** Convert strNums like ["1","2","3"] to [1, 2, 3]. */
 
 function convertStrNums(strNums) {
-  for (let i in strNums) {
-      n = Number(strNums[i])
+  const convertedNums = []
+  for (const num of strNums) {
+      n = Number(num)//const
 
       if (isNaN(n)) {
-        throw new BadRequestError(`${strNums[i]} is not a number`);
+        throw new BadRequestError(`${num} is not a number`);
       }
-      
-      strNums[i] = n;
+      convertedNums.push(n);
   }
-  return strNums;
+  return convertedNums;
 }
 
 
